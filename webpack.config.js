@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const generateHTMLPlugins = () =>
-  glob.sync('./src/views/**/*.html').map(
+  glob.sync('./src/views/**/*.njk').map(
     (dir) =>
       new HtmlWebpackPlugin({
         filename: dir.replace('src/views/', ''),
@@ -44,7 +44,7 @@ module.exports = {
       },
 
       {
-        test: /\.html$/,
+        test: /\.njk$/,
         use: [
           {
             loader: 'simple-nunjucks-loader',
