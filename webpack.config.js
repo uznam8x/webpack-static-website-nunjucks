@@ -10,7 +10,7 @@ const generateHTMLPlugins = () =>
   glob.sync('./src/views/**/*.njk').map(
     (dir) =>
       new HtmlWebpackPlugin({
-        filename: dir.replace('src/views/', ''),
+        filename: dir.replace('src/views/', '').replace('.njk', '.html'),
         template: dir,
         inject: 'body',
       })
